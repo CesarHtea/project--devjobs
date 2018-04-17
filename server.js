@@ -1,10 +1,17 @@
 const express = require('express')
 const ejs = require('ejs')
 
+const connectToDatabase = require('./src/databases/dbConnect')
+const knexFile = require('./knexfile')
+
 const pageRouter = require('./src/routers/pageRouter')
 const apiRouter = require('./src/routers/apiRouter')
 
 const app = express()
+
+const appConnectionWithDatabase = connectToDatabase(knexFile.development)
+
+app.locals.db = appConnectionWithDatabase
 
 app.engine('ejs', ejs.renderFile)
 app.set('view engine', 'ejs')
