@@ -2,7 +2,7 @@ const Router = require('express').Router;
 const pageRouter = Router()
 
 pageRouter.get('/', (req, res) => {
-  res.send('<h1>HOME page</h1>')
+  res.render('home.ejs')
 })
 
 pageRouter.get('/about', (req, res) => {

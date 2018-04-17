@@ -15,7 +15,7 @@ app.use(express.static(`${__dirname}/public`))
 app.use('/', pageRouter)
 app.use('/api', apiRouter)
 app.use(function(req, res) {
-  res.send('<h1>404 - Page Not Found!</h1>')
+  res.render('404.ejs')
 })
 
 const PORT = process.env.PORT || 3000;
